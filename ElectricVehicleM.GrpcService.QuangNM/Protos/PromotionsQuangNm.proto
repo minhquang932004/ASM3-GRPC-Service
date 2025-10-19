@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option csharp_namespace = "ElectricVehicleM.GrpcService.QuangNM.Protos";
+
+
+service PromotionsQuangNmGRPC
+{
+	rpc GetAllAsync(EmptyRequest) returns (PromotionsQuangNmList);
+    rpc GetByIdAsync(PromotionQuangNmIdRequest) returns (PromotionsQuangNm);
+}
+
+message EmptyRequest {}
+
+message PromotionsQuangNmList
+{
+	repeated PromotionsQuangNm Items = 1;
+}
+
+message PromotionsQuangNm
+{
+	int32 PromotionQuangNmid = 1;
+    string Title = 2;
+    string Description = 3;
+    double DiscountRate = 4;
+    string StartDate = 5;
+    string EndDate = 6;
+    bool IsActive = 7;
+    string ApplicableModel = 8;
+    int32 MaxUsage = 9;
+    string CreatedAt = 10;
+    int32 UsageQuangNmid = 11;
+    // UsageQuangNm can be added as a nested message if needed
+}
+
+message PromotionQuangNmIdRequest
+{
+    int32 PromotionQuangNmid = 1;
+}
