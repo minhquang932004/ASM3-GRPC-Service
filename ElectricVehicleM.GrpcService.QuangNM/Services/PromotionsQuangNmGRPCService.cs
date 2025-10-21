@@ -39,5 +39,76 @@ namespace ElectricVehicleM.GrpcService.QuangNM.Services
 
             return result;
         }
+
+        public override async Task<PromotionsQuangNm> GetByIdAsync(PromotionQuangNmIdRequest request, ServerCallContext context)
+        {
+            try
+            {
+                // Get data from service
+                var promotion = await _serviceProviders.PromotionsQuangNmService.GetByIdAsync(request.PromotionQuangNmid);
+                // Serialize with options to handle reference loops and ignore nulls
+                var opt = new JsonSerializerOptions() { ReferenceHandler = ReferenceHandler.IgnoreCycles, DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
+                // Convert to JSON string
+                var promotionJson = JsonSerializer.Serialize(promotion, opt);
+                // Deserialize JSON string to PromotionsQuangNm
+                var result = JsonSerializer.Deserialize<PromotionsQuangNm>(promotionJson, opt);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new RpcException(new Status(StatusCode.Internal, ex.Message));
+            }
+        }
+
+        public override async Task<MutationRelay> CreateAsync(PromotionsQuangNm request, ServerCallContext context)
+        {
+            try
+            {
+                var opt = new JsonSerializerOptions() { ReferenceHandler = ReferenceHandler.IgnoreCycles, DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
+                // Convert proto request to JSON string
+                var promotion = JsonSerializer.Serialize(request, opt);
+                var item = JsonSerializer.Deserialize<ElectricVehicleM.Repositories.QuangNM.Models.PromotionsQuangNm>(promotion);
+                var result = await _serviceProviders.PromotionsQuangNmService.CreateAsync(item);
+
+                return new MutationRelay() { Result = result };
+            }
+            catch (Exception ex)
+            {
+                throw new RpcException(new Status(StatusCode.Internal, ex.Message));
+            }
+        }
+
+        public override async Task<MutationRelay> UpdateAsync(PromotionsQuangNm request, ServerCallContext context)
+        {
+            try
+            {
+                var opt = new JsonSerializerOptions() { ReferenceHandler = ReferenceHandler.IgnoreCycles, DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
+                // Convert proto request to JSON string
+                var promotion = JsonSerializer.Serialize(request, opt);
+                var item = JsonSerializer.Deserialize<ElectricVehicleM.Repositories.QuangNM.Models.PromotionsQuangNm>(promotion);
+                var result = await _serviceProviders.PromotionsQuangNmService.UpdateAsync(item);
+
+                return new MutationRelay() { Result = result };
+            }
+            catch (Exception ex)
+            {
+                throw new RpcException(new Status(StatusCode.Internal, ex.Message));
+            }
+        }
+
+        public override async Task<MutationRelay> DeleteAsync(PromotionQuangNmIdRequest request, ServerCallContext context)
+        {
+            try
+            {
+                // Get data from service
+                var result = await _serviceProviders.PromotionsQuangNmService.DeleteAsync(request.PromotionQuangNmid);
+                // Return 1 for success, 0 for failure
+                return new MutationRelay() { Result = result ? 1 : 0 };
+            }
+            catch (Exception ex)
+            {
+                throw new RpcException(new Status(StatusCode.Internal, ex.Message));
+            }
+        }
     }
 }

@@ -24,8 +24,4 @@
     <ProjectReference Include="..\ElectricVehicleM.Services.QuangNM\ElectricVehicleM.Services.QuangNM.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
-  </ItemGroup>
-
 </Project>
