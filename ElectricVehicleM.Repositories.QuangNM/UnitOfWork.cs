@@ -9,9 +9,9 @@ namespace ElectricVehicleM.Repositories.QuangNM
         private readonly PromotionsQuangNmRepository? _promotionsQuangNmRepository;
         private readonly SystemUserAccountRepository? _systemUserAccountRepository;
 
-        public UnitOfWork()
+        public UnitOfWork(FA25_PRN232_SE1717_G1_ElectricVehicleManagementContext context)
         {
-            _context ??= new FA25_PRN232_SE1717_G1_ElectricVehicleManagementContext();
+            _context = context;
         }
 
         public PromotionsQuangNmRepository PromotionsQuangNmRepository

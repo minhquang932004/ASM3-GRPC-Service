@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectricVehicleM.GrpcServic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectricVehicleM.ConsoleApp.QuangNM", "ElectricVehicleM.ConsoleApp.QuangNM\ElectricVehicleM.ConsoleApp.QuangNM.csproj", "{7C68F022-21E3-4B46-8A0E-45F5F01A3DD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectricVehicleM.MVC.QuangNM", "ElectricVehicleM.MVC.QuangNM\ElectricVehicleM.MVC.QuangNM.csproj", "{15FE2105-CC61-4792-821D-8B167C00A333}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7C68F022-21E3-4B46-8A0E-45F5F01A3DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C68F022-21E3-4B46-8A0E-45F5F01A3DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C68F022-21E3-4B46-8A0E-45F5F01A3DD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15FE2105-CC61-4792-821D-8B167C00A333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15FE2105-CC61-4792-821D-8B167C00A333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15FE2105-CC61-4792-821D-8B167C00A333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15FE2105-CC61-4792-821D-8B167C00A333}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

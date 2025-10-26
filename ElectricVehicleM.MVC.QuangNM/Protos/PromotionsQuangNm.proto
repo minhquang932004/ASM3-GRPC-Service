@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option csharp_namespace = "ElectricVehicleM.GrpcService.QuangNM.Protos";
+
+// Package definition
+service PromotionsQuangNmGRPC
+{
+	rpc GetAllAsync(EmptyRequest) returns (PromotionsQuangNmList);
+    rpc GetByIdAsync(PromotionQuangNmIdRequest) returns (PromotionsQuangNm);
+    // Mutation
+    rpc CreateAsync(PromotionsQuangNm) returns (MutationRelay);
+    rpc UpdateAsync(PromotionsQuangNm) returns (MutationRelay);
+    rpc DeleteAsync(PromotionQuangNmIdRequest) returns (MutationRelay);
+}
+
+// Empty request message
+message EmptyRequest {}
+
+// Response message containing a list of promotions
+message PromotionsQuangNmList
+{
+	repeated PromotionsQuangNm Items = 1;
+}
+
+// Message representing a promotion
+message PromotionsQuangNm
+{
+	int32 PromotionQuangNmid = 1;
+    string Title = 2;
+    string Description = 3;
+    double DiscountRate = 4;
+    string StartDate = 5;
+    string EndDate = 6;
+    bool IsActive = 7;
+    string ApplicableModel = 8;
+    int32 MaxUsage = 9;
+    string CreatedAt = 10;
+    int32 UsageQuangNmid = 11;
+    // UsageQuangNm can be added as a nested message if needed
+}
+
+// Request message for getting a promotion by ID
+message PromotionQuangNmIdRequest
+{
+    int32 PromotionQuangNmid = 1;
+}
+
+message MutationRelay
+{
+    int32 result = 1;
+}
+

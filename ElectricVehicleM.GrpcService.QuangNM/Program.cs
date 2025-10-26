@@ -1,10 +1,14 @@
 using ElectricVehicleM.GrpcService.QuangNM.Services;
+using ElectricVehicleM.Repositories.QuangNM;
+using ElectricVehicleM.Repositories.QuangNM.DBContext;
 using ElectricVehicleM.Services.QuangNM;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddGrpc();
+builder.Services.AddDbContext<FA25_PRN232_SE1717_G1_ElectricVehicleManagementContext>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IServiceProviders, ServiceProviders>();
 
 var app = builder.Build();

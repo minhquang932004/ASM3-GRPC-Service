@@ -5,9 +5,9 @@ namespace ElectricVehicleM.Services.QuangNM
 {
     public class SystemUserAccountService
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public SystemUserAccountService() => _unitOfWork ??= new UnitOfWork();
+        public SystemUserAccountService(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
 
         public async Task<SystemUserAccount> GetUserAccount(string email, string password)
         {

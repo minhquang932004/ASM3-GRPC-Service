@@ -6,7 +6,7 @@ namespace ElectricVehicleM.Services.QuangNM
     public class PromotionUsageQuangNmService
     {
         private readonly IUnitOfWork _unitOfWork;
-        public PromotionUsageQuangNmService() => _unitOfWork = new UnitOfWork();
+        public PromotionUsageQuangNmService(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
 
         public async Task<List<PromotionUsageQuangNm>> GetAllAsync()
         {

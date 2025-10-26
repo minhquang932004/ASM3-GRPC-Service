@@ -9,9 +9,9 @@ namespace ElectricVehicleM.Services.QuangNM
         //private readonly PromotionsQuangNmRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PromotionsQuangNmService()
+        public PromotionsQuangNmService(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = new UnitOfWork();
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<int> CreateAsync(PromotionsQuangNm promotion)
